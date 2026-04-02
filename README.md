@@ -1,22 +1,21 @@
-# \# Portfolio Projects
+# Portfolio Projects
 
-# 
+A collection of notable projects beyond guided coursework.
 
-# A collection of notable projects beyond guided coursework.
+## Projects
 
-# 
+### COVID-19 Pandemic Steam Gaming Analysis (2021)
+Exploratory data analysis on Steam gaming trends during the COVID-19 pandemic.
+**Stack:** Python · Pandas · NumPy · SciPy · Matplotlib · Jupyter Notebook
 
-# \## Projects
+---
 
-# \- Steam Gaming Data Analysis — Exploratory data analysis using Python, 
+### Project Name (Year)
+Short description here.
+**Stack:** Tech · Tech · Tech
 
-# Pandas, NumPy, SciPy, and Matplotlib as part of the 
+---
 
-# Data \& Programming Foundations for AI path.
-
-# 
-
-# \## Stack
-
-# Python · Pandas · NumPy · SciPy · Matplotlib · Jupyter Notebook
-
+### Project Name (Year)
+Short description here.
+**Stack:** Tech · Tech · Tech
