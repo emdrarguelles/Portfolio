@@ -21,7 +21,7 @@ const getPowerLevel = (rarity) => {
     }
 }
 
-const generateMessage = async () => {
+const summonCreature = async () => {
     const randCreature = creatures[randomize(creatures.length)]
     const randColor = colors[randomize(colors.length)]
     const randElement = elements[randomize(elements.length)]
@@ -59,4 +59,4 @@ const generateMessage = async () => {
     }
     
 }
-await generateMessage()
+await summonCreature()
