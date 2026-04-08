@@ -91,9 +91,9 @@ This project is a hands-on exercise in:
 
 ## 🧪 What I Learned
 
-*Learned how async/await affects execution flow
-*Practiced using helper functions to organize logic
-*Understood how to scale values based on categories (rarity → power)
+* Learned how async/await affects execution flow
+* Practiced using helper functions to organize logic
+* Understood how to scale values based on categories (rarity → power)
 
 ---
 
