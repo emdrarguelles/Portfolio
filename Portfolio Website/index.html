@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IE:wght@100..400&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -24,44 +25,203 @@
         <main>
             <section id="hero">
                 <div class="hero-left">
-                    <div class="hero-intro">
+                    <div class="hero-intro" data-aos="fade-right" data-aos-delay="100">
                         <p class="hero-greeting">Hey There,</p>
                         <h1 class="hero-name">I'm Ed</h1>
                     </div>
-                    <a href="mailto:emdrarguelles@gmail.com" class="hero-email">emdrarguelles@gmail.com</a>
-                    <div class="hero-experience">
+                    <a href="mailto:emdrarguelles@gmail.com" class="hero-email" data-aos="fade-right" data-aos-delay="200">emdrarguelles@gmail.com</a>
+                    <div class="hero-experience" data-aos="fade-right" data-aos-delay="300">
                         <span class="hero-years">10</span>
                         <span class="hero-years-label">YEARS<br>EXPERIENCE</span>
                     </div>
                 </div>
             
-                <div class="hero-center">
-                    <div class="brush-stroke">
+                <div class="hero-center" data-aos="fade-left" data-aos-delay="300">
+                    <div class="blob"></div>
+                    <div>
                         <img src="assets/images/Profile Picture-1A.png" alt="Ed Arguelles" class="hero-photo"/>
                     </div>
                 </div>
             
-                <div class="hero-right">
+                <div class="hero-right" data-aos="fade-left" data-aos-delay="300">
                     <p class="hero-tagline">Entrepreneur with 10 years of experience, transitioning into software development with JavaScript, React, Node.js, and PostgreSQL.</p>
                 </div>
             </section>
-            <section id="about">
-                <h2>About me</h2>
-                <p>Operations and people leader with 10 years of experience scaling businesses from startup to 700+ employees. Strong background in strategic planning, team leadership, and translating business needs into actionable decisions.</p>
-                <p>Currently transitioning into software development, building technical proficiency in JavaScript, React, Node.js, and PostgreSQL.</p>
-                <p>Committed to combining hands-on business experience with modern technology to build solutions grounded in real-world operational insight.</p>
-            </section>
-            <section id="projects">
-                <h2>Projects</h2>
 
+            <section id="about">
+                <h2 class="about-title">About Me</h2>
+                <div class="about-container">
+                    <div class="about-left" data-aos="fade-right">
+                        <p>Operations and people leader with 10 years of experience scaling businesses from startup to 700+ employees. Strong background in strategic planning, team leadership, and translating business needs into actionable decisions.</p>
+                        <p>Currently transitioning into software development, building technical proficiency in JavaScript, React, Node.js, and PostgreSQL.</p>
+                        <p>Committed to combining hands-on business experience with modern technology to build solutions grounded in real-world operational insight.</p>
+                    </div>
+            
+                    <div class="about-right" data-aos="fade-left">
+                        <h2>Work Experience</h2>
+                        <div class="timeline">
+            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">March 2025 — Present</span>
+                                    <h3>Co-Founder</h3>
+                                    <p>The Laundry Butler Inc.</p>
+                                </div>
+                            </div>
+            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">July 2024 — Present</span>
+                                    <h3>Founder</h3>
+                                    <p>Edspert Transport Services</p>
+                                </div>
+                            </div>
+            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">June 2024 — Present</span>
+                                    <h3>Registered Consultant</h3>
+                                    <p>Business Development & Strategy</p>
+                                </div>
+                            </div>
+            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">Oct 2017 — May 2024</span>
+                                    <h3>Co-Founder & Corporate President</h3>
+                                    <p>VA Platinum Pty Ltd Inc.</p>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <section id="projects">
+                <h2 class="projects-title">Projects</h2>
+                <div class="boxes">
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">COVID-19 Pandemic Steam Gaming Analysis</h3>
+                                    <p class="project-details">Exploratory data analysis on Steam gaming trends during the COVID-19 pandemic, focusing on player behavior shifts and engagement patterns during global lockdowns.</p>
+                                    <p class="project-stack">Python · Pandas · NumPy · SciPy · Matplotlib · Jupyter Notebook</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">COVID-19 Pandemic Steam Gaming Analysis</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">Creature Summoner</h3>
+                                    <p class="project-details">A JavaScript console-based summoning simulator that generates a random mythical creature with attributes such as color, element, rarity, and power level.</p>
+                                    <p class="project-stack">JavaScript · Node.js (Console)</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">Creature Summoner</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">Portfolio Website</h3>
+                                    <p class="project-details">Personal portfolio site showcasing projects, skills, and work experience. <em><ins>This website you are browsing now.</ins></em></p>
+                                    <p class="project-stack">HTML · CSS · JavaScript</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">Portfolio Website</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">New projects to follow</h3>
+                                    <p class="project-details">Next Portfolio Project.</p>
+                                    <p class="project-stack">HTML · CSS · JavaScript</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">GitHub Portfolio Repository</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">New projects to follow</h3>
+                                    <p class="project-details">Next Portfolio Project.</p>
+                                    <p class="project-stack">HTML · CSS · JavaScript</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">GitHub Portfolio Repository</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="box-inner">
+                            <!-- FRONT -->
+                            <div class="box-front">
+                                <div class="project">
+                                    <h3 class="project-name">New projects to follow</h3>
+                                    <p class="project-details">Next Portfolio Project.</p>
+                                    <p class="project-stack">HTML · CSS · JavaScript</p>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="box-back">
+                                <h3 class="project-name">GitHub Portfolio Repository</h3>
+                                <a href="https://github.com/emdrarguelles/Portfolio" target="_blank" class="github-link">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="skills">
                 <h2>Skills</h2>
             </section>
+
             <section id="contact">
                 <h2>Contact</h2>
             </section>
         </main>
         <footer></footer>
+        <button class="scroll-top" id="scrollTop" aria-label="Back to top">&#8679;</button>
+        <script src="assets/js/main.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>AOS.init({duration: 800, once: true, offset: 200});</script>
     </body>
 </html>

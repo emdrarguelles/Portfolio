@@ -1,4 +1,7 @@
-html {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     scroll-behavior: smooth;
   }
 
@@ -28,12 +31,30 @@ nav {
   }
 
 
-.logo {
+  .logo {
     font-family: "Playwrite IE", cursive;
     font-style: normal;
     text-decoration: none;
     color: black;
-    padding-left: 10px;
+    padding-left: 20px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+
+.logo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px; /* matches padding-left */
+    width: 0;
+    height: 2px;
+    background-color: #2d6e6e;
+    transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+    width: 80%;
 }
 
 nav ul {
@@ -46,6 +67,22 @@ nav li a {
     padding: 40px;
     text-decoration: none;
     color: black;
+    position: relative;
+}
+
+nav li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2d6e6e;
+    transition: width 0.3s ease;
+}
+
+nav li a:hover::after {
+    width: 100%;
 }
 
 #hero {
@@ -116,27 +153,19 @@ nav li a {
     position: relative;
 }
 
-.brush-stroke {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.brush-stroke::before {
-    content: "";
+.blob {
     position: absolute;
     width: 36vw;
-    height: 32vw;
+    height: 30vw;
     background-color: #2d6e6e;
     border-radius: 70% 40% 70% 30% / 50% 60% 40% 50%;
-    z-index: 0;
+    z-index: 0; /* behind photo */
     margin-bottom: -1vw;
 }
 
 .hero-photo {
     position: relative;
-    z-index: 1;
+    z-index: 2; /* always on top */
     width: 30vw;
     object-fit: cover;
     margin-bottom: -60px;
@@ -161,27 +190,227 @@ nav li a {
 }
 
 #about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 100px 80px 60px 80px;
-    min-height: 60vh;
-    background-color: white;
+    padding: 5vw 8vw;
+    background-color: #ffffff;
 }
 
-#about p {
-    width: 50vh;
+.about-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+
+.about-container {
+    display: flex;
+    gap: 5vw;
+    align-items: flex-start;
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-left p {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 2;
+    margin-bottom: 16px;
+}
+
+/* RIGHT - TIMELINE */
+.about-right {
+    flex: 1;
+}
+
+.about-right h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 24px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #2d6e6e;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #2d6e6e;
+    border: 2px solid #ffffff;
+    outline: 2px solid #2d6e6e;
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    color: #e05c3a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.timeline-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 4px 0;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
 }
 
 #projects {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 100px 80px 60px 80px;
-    min-height: 60vh;
+    padding: 5vw 8vw;
     background-color: #f9f6f0;
+}
+
+.projects-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2vw;
+    width: 100%;
+}
+
+.box {
+    flex: 0 1 30%;
+    height: 280px;
+    perspective: 1000px; /* gives the 3D depth effect */
+    cursor: pointer;
+    border: none; /* remove old border, box-inner handles it */
+    background: transparent;
+    padding: 0;
+}
+
+.box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, box-shadow 0.1s ease;
+    border-radius: 12px;
+}
+
+.box:hover .box-inner {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+
+/* flip on hover */
+.box.flipped .box-inner {
+    transform: rotateY(180deg);
+}
+
+.box-front,
+.box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box-front {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+}
+
+.box-back {
+    background-color: #2d6e6e;
+    border: 1px solid #2d6e6e;
+    transform: rotateY(180deg); /* starts hidden */
+    align-items: center;
+    gap: 24px;
+}
+
+.box-back .project-name {
+    color: white;
+    text-align: center;
+}
+
+.github-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: white;
+    color: #2d6e6e;
+    text-decoration: none;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.github-link:hover {
+    background-color: #1a1a2e;
+    color: white;
+}
+
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.4;
+}
+
+.project-details {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.project-stack {
+    font-size: 0.8rem;
+    color: #2d6e6e;
+    font-weight: 600;
 }
 
 #skills {
@@ -202,4 +431,40 @@ nav li a {
     padding: 100px 80px 60px 80px;
     min-height: 60vh;
     background-color: #f9f6f0;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #2d6e6e;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.scroll-top p {
+    color: black;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background-color: #1a1a2e;
+    transform: translateY(-4px);
 }
