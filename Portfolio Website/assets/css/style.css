@@ -724,3 +724,111 @@ footer {
     color: white;
     font-size: 0.8rem;
 }
+
+/* Tablet and Mobile Styles */
+@media (max-width: 1024px) {
+    #hero {
+        flex-direction: column;
+        /* Remove align-items: center if it's there */
+        align-items: flex-start; 
+        padding: 100px 40px 0 40px; /* 0 bottom padding to let image touch the edge */
+        justify-content: flex-start;
+    }
+
+    .hero-left {
+        order: 1; /* Greeting and Name first */
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .hero-right {
+        order: 2; /* Tagline second */
+        width: 100%;
+        align-items: flex-start; /* Move text to the left */
+        text-align: left;
+    }
+
+    .hero-center {
+        order: 3; /* Photo last (bottom) */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Anchors the content to the bottom */
+        margin-top: auto; /* Pushes the photo container to the bottom edge */
+    }
+
+    .hero-photo {
+        width: 70vw; /* Adjust size for mobile */
+        max-width: 400px;
+        margin-bottom: 0; /* Ensures it sits on the section line */
+        display: block;
+    }
+
+    .blob {
+        width: 65vw;
+        height: 55vw;
+        bottom: 10px; /* Anchor the blob to the bottom too */
+    }
+
+    .box {
+        flex: 0 1 45%; /* Two cards per row on tablets */
+    }
+
+    /* Stack the contact info on top of the form for Tablets and Phones */
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-left, .contact-right {
+        width: 100%; /* Force them to take up the full width of the container */
+        flex: none;
+    }
+
+    /* Center the contact text for a better look when stacked */
+    .contact-left {
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-details, .contact-socials {
+        align-items: center;
+    }
+}
+
+/* Specific Mobile Styles */
+@media (max-width: 768px) {
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav li a {
+        padding: 10px 12px; 
+        font-size: 0.85rem;
+    }
+
+    .logo {
+        padding-left: 10px;
+        font-size: 1.1rem;
+    }
+
+    .hero-name {
+        word-wrap: break-word;
+        font-size: 2.2rem; /* Or whatever size prevents it from horizontal scrolling */
+    }
+
+    .about-container, .contact-container {
+        flex-direction: column; /* Stack About and Contact sections vertically */
+    }
+
+    .box {
+        flex: 0 1 100%; /* One card per row on phones */
+    }
+
+    .about-title, .projects-title, .skills-title, .contact-title {
+        font-size: 1.5rem;
+    }
+}
