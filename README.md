@@ -31,6 +31,20 @@ This project demonstrates core JavaScript fundamentals while introducing asynchr
 
 ---
 
+### 🌐 Portfolio Website (2026)
+
+A responsive personal portfolio website showcasing my projects, technical skills, and professional background. Built with a focus on clean UI, interactivity, and real-world functionality.
+
+**Key Features:**
+* Animated sections
+* Anteractive project cards
+* Skill icons carousel 
+* Fully functional contact form powered by EmailJS
+
+**Stack:** HTML · CSS · JavaScript · EmailJS
+
+---
+
 ### 🚧 Project Name (Upcoming)
 
 Short description here.
