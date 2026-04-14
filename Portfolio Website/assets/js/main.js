@@ -22,3 +22,30 @@ scrollTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+emailjs.init('VjHxZFeWDkY1EW6Cg');
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const status = document.getElementById('form-status');
+    const btn = document.querySelector('.submit-btn');
+    
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.sendForm('service_dog2tec', 'template_2qn9lin', this)
+    .then(() => {
+        status.textContent = 'Message sent successfully!';
+        status.className = 'form-status success';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        this.reset();
+    })
+    .catch(() => {  // ✅ FIXED
+        status.textContent = 'Something went wrong. Please try again.';
+        status.className = 'form-status error';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+    });
+});

@@ -10,11 +10,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IE:wght@100..400&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     </head>
     <body>
         <header>
             <nav>
-                <a href="#" class="logo">emdragon</a>
+                <a href="#" class="logo">emdrargon</a>
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -30,7 +31,7 @@
                         <p class="hero-greeting">Hey There,</p>
                         <h1 class="hero-name">I'm Ed</h1>
                     </div>
-                    <a href="mailto:emdrarguelles@gmail.com" class="hero-email" data-aos="fade-right" data-aos-delay="200">emdrarguelles@gmail.com</a>
+                    <a href="mailto:emdrargon.dev@gmail.com" class="hero-email" data-aos="fade-right" data-aos-delay="200">emdrargon.dev@gmail.com</a>
                     <div class="hero-experience" data-aos="fade-right" data-aos-delay="300">
                         <span class="hero-years">10</span>
                         <span class="hero-years-label">YEARS<br>EXPERIENCE</span>
@@ -213,6 +214,7 @@
 
             <section id="skills">
                 <h2 class="skills-title">Skills</h2>
+                <p class="skills-subtitle">Technical:</p>
                 <div class="carousel-track-wrapper">
                     <div class="carousel-track">
                         <!-- duplicated for infinite loop effect -->
@@ -224,6 +226,8 @@
                         <div class="skill-icon"><i class="fab fa-python"></i><span>Python</span></div>
                         <div class="skill-icon"><i class="fab fa-git-alt"></i><span>Git</span></div>
                         <div class="skill-icon"><i class="fab fa-github"></i><span>GitHub</span></div>
+                        <div class="skill-icon"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="skill-icon"><i class="fas fa-terminal"></i><span>Command Line</span></div>
                         <!-- duplicate set for seamless loop -->
                         <div class="skill-icon"><i class="fab fa-html5"></i><span>HTML5</span></div>
                         <div class="skill-icon"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
@@ -233,6 +237,8 @@
                         <div class="skill-icon"><i class="fab fa-python"></i><span>Python</span></div>
                         <div class="skill-icon"><i class="fab fa-git-alt"></i><span>Git</span></div>
                         <div class="skill-icon"><i class="fab fa-github"></i><span>GitHub</span></div>
+                        <div class="skill-icon"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="skill-icon"><i class="fas fa-terminal"></i><span>Command Line</span></div>
                         <!-- duplicate set for seamless loop -->
                         <div class="skill-icon"><i class="fab fa-html5"></i><span>HTML5</span></div>
                         <div class="skill-icon"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
@@ -242,12 +248,97 @@
                         <div class="skill-icon"><i class="fab fa-python"></i><span>Python</span></div>
                         <div class="skill-icon"><i class="fab fa-git-alt"></i><span>Git</span></div>
                         <div class="skill-icon"><i class="fab fa-github"></i><span>GitHub</span></div>
+                        <div class="skill-icon"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="skill-icon"><i class="fas fa-terminal"></i><span>Command Line</span></div>
+                    </div>
+                </div>
+                <p class="skills-subtitle">Operational:</p>
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track carousel-reverse">
+                        <!-- soft skills or tools -->
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i><span>Strategy</span></div>
+                        <div class="skill-icon"><i class="fas fa-users"></i><span>Leadership</span></div>
+                        <div class="skill-icon"><i class="fas fa-cogs"></i><span>Operations</span></div>
+                        <div class="skill-icon"><i class="fas fa-handshake"></i><span>Consulting</span></div>
+                        <div class="skill-icon"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                        <div class="skill-icon"><i class="fas fa-tasks"></i><span>Asana</span></div>
+                        <div class="skill-icon"><i class="fab fa-slack"></i><span>Slack</span></div>
+                        <div class="skill-icon"><i class="fas fa-brain"></i><span>Analytics</span></div>
+                        <!-- duplicate set -->
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i><span>Strategy</span></div>
+                        <div class="skill-icon"><i class="fas fa-users"></i><span>Leadership</span></div>
+                        <div class="skill-icon"><i class="fas fa-cogs"></i><span>Operations</span></div>
+                        <div class="skill-icon"><i class="fas fa-handshake"></i><span>Consulting</span></div>
+                        <div class="skill-icon"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                        <div class="skill-icon"><i class="fas fa-tasks"></i><span>Asana</span></div>
+                        <div class="skill-icon"><i class="fab fa-slack"></i><span>Slack</span></div>
+                        <div class="skill-icon"><i class="fas fa-brain"></i><span>Analytics</span></div>
+                        <!-- duplicate set -->
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i><span>Strategy</span></div>
+                        <div class="skill-icon"><i class="fas fa-users"></i><span>Leadership</span></div>
+                        <div class="skill-icon"><i class="fas fa-cogs"></i><span>Operations</span></div>
+                        <div class="skill-icon"><i class="fas fa-handshake"></i><span>Consulting</span></div>
+                        <div class="skill-icon"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                        <div class="skill-icon"><i class="fas fa-tasks"></i><span>Asana</span></div>
+                        <div class="skill-icon"><i class="fab fa-slack"></i><span>Slack</span></div>
+                        <div class="skill-icon"><i class="fas fa-brain"></i><span>Analytics</span></div>
                     </div>
                 </div>
             </section>
 
             <section id="contact">
-                <h2>Contact</h2>
+                <h2 class="contact-title">Contact Me</h2>
+                <div class="contact-container">
+                    <div class="contact-left" data-aos="fade-right">
+                        <h3>Let's work together</h3>
+                        <p>Have a project in mind or just want to connect? Fill out the form or reach out directly.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:emdrargon.dev@gmail.com">emdrargon.dev@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+639232659970">+63 923 265 9970</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Cebu, Philippines</span>
+                            </div>
+                        </div>
+                        <div class="contact-socials">
+                            <a href="https://github.com/emdrarguelles" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/edmarcusarguelles/" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+            
+                    <div class="contact-right" data-aos="fade-left">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="from_name">Name</label>
+                                <input type="text" id="from_name" name="from_name" placeholder="Your name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="from_email">Email</label>
+                                <input type="email" id="from_email" name="from_email" placeholder="emdrargon.dev@gmail.com" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What's this about?" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                            <p class="form-status" id="form-status"></p>
+                        </form>
+                    </div>
+                </div>
             </section>
         </main>
         <footer>
