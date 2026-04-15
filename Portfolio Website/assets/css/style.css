@@ -114,7 +114,7 @@ nav li a:hover::after {
     align-items: flex-end;
     justify-content: space-between;
     padding: 100px 80px 60px 80px;
-    min-height: 80vh;
+    min-height: 90vh;
     background-color: #f9f6f0;
     overflow: hidden;  /* keeps blob from bleeding out */
     width: 100%
@@ -732,10 +732,25 @@ footer {
 
 /* Tablet and Mobile Styles */
 @media (max-width: 1024px) {
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav li a {
+        padding: 1vh 1.2vw; 
+        font-size: 1rem;
+    }
+
+    #hero, #about, #projects, #skills, #contact {
+        scroll-margin-top: 50px;
+    }
+
     #hero {
         flex-direction: column;
         align-items: flex-start; 
-        padding: 100px 40px 0 40px;
+        padding: 80px 40px 0 40px;
         justify-content: flex-start;
     }
 
@@ -743,7 +758,7 @@ footer {
         order: 1;
         width: 100%;
         min-height: auto;
-        margin-bottom: 20px;
+        margin-top: 20px;
         position: relative; /* ADD THIS */
         z-index: 3;         /* ADD THIS — keeps text above blob */
     }
@@ -753,6 +768,7 @@ footer {
         width: 100%;
         align-items: flex-end;
         text-align: left;
+        margin-top: 50px;
         position: relative; /* ADD THIS */
         z-index: 3;         /* ADD THIS */
     }
@@ -812,20 +828,6 @@ footer {
 
 /* Specific Mobile Styles */
 @media (max-width: 768px) {
-    #hero, #about, #projects, #skills, #contact {
-        scroll-margin-top: 50px;
-    }
-
-    header {
-        max-width: 100%; /* full width on mobile */
-        width: 100%;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     nav li a {
         padding: 1vh 1.2vw; 
         font-size: 0.85rem;
@@ -871,5 +873,11 @@ footer {
 
     .carousel-track {
         gap: 24px;
+    }
+}
+
+@media (max-width: 425px) {
+    #hero {
+        min-height: 100vh;
     }
 }
