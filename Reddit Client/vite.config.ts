@@ -9,6 +9,13 @@ export default defineConfig({
 
   server: {
     open: true,
+    proxy: {
+      '/api': {
+          target: 'https://www.reddit.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   },
 
   test: {
@@ -26,3 +33,5 @@ export default defineConfig({
     setupFiles: ["./src/setupTests.ts"],
   },
 })
+
+

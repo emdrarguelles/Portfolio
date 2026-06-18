@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Feed from '../features/Feed/Feed';
-import Posts from '../features/Posts/Posts';
+import PostDetail from '../features/PostDetail/PostDetail';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const Layout = () => {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <Outlet />
     </>
   )
@@ -16,7 +18,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Feed />} />
-      <Route path="feed/:postId" element={<Posts />} />
+      <Route path="feed/:postId" element={<PostDetail />} />
     </Route>
   )
 )
