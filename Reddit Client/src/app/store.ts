@@ -2,10 +2,12 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import popularSlice from '../features/Popular/popularSlice';
 import feedSlice from '../features/Feed/feedSlice';
+import searchBarState from '../features/Searchbar/searchbarSlice';
 
 const rootReducer = combineReducers({
   popular: popularSlice,
   feed: feedSlice,
+  searchbar: searchBarState,
 })
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
