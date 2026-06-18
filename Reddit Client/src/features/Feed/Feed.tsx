@@ -14,9 +14,9 @@ const Feed = () => {
     },[])
 
     return (
-        <>
+        <div className="feed">
             <Posts post={post} selectedSubreddit={selectedSubreddit} status={status}  />
-        </>
+        </div>
     )
 }
 

@@ -6,15 +6,15 @@ interface PostCardProps {
 
 const PostCard = ({ post }: PostCardProps) => {
     return (
-        <div>
-        	<p>{post.id}</p>
-            <p>{post.title}</p>
-            <p>{post.author}</p>
-            <p>{post.score}</p>
-            <p>{post.num_comments}</p>
-            <p>{post.subreddit}</p>
-            <p>{post.url}</p>
-            <img src={post.thumbnail ?? undefined} alt={post.id} />
+        <div className="post-card">
+            <p className="post-meta">r/{post.subreddit} • Posted by u/{post.author}</p>
+            <p className="post-title">{post.title}</p>
+            <img className="post-thumbnail" src={post.thumbnail ?? undefined} alt={post.title} />
+            <div className="post-actions">
+                <button className="post-action-btn">▲ {post.score}</button>
+                <button className="post-action-btn">💬 {post.num_comments} Comments</button>
+                <button className="post-action-btn">Share</button>
+            </div>
         </div>
             
     )

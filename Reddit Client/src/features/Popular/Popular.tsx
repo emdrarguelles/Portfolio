@@ -13,9 +13,9 @@ const Popular = () => {
     return (
         <>
            {subreddits.map(subreddit => (
-            <div key={subreddit.name}>
-                <img src={subreddit.icon ?? undefined} alt={subreddit.name} />
-                <p>{subreddit.name}</p>
+            <div key={subreddit.name} className="subreddit-item">
+                <div className="subreddit-icon" />
+                <span className="subreddit-name">{subreddit.name}</span>
             </div>
             ))}
         </>

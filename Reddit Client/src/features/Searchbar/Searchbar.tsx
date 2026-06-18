@@ -6,9 +6,9 @@ const Searchbar = () => {
     const searchTerm = useAppSelector(searchTermSelector);
 
     return (
-        <>
-            <input type='text' value={searchTerm} onChange={(e) => dispatch(search(e.target.value))} />
-        </>
+        <div className="searchbar-container">
+            <input className="searchbar-input" type='text' value={searchTerm} onChange={(e) => dispatch(search(e.target.value))} placeholder='Search...' />
+        </div>
     )
 }
 
