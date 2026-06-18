@@ -1,7 +1,7 @@
 import { RootState } from '../../app/store';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-interface Post {
+export interface Post {
     id: string;
     title: string;
     author: string;

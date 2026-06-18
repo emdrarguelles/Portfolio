@@ -1,13 +1,4 @@
-interface Post {
-    id: string;
-    title: string;
-    author: string;
-    score: number;
-    num_comments: number;
-    subreddit: string;
-    url: string;
-    thumbnail: string;
-}
+import { Post } from '../../features/Feed/feedSlice';
 
 interface PostCardProps {
     post: Post;
