@@ -7,12 +7,13 @@
   <strong>🔗 Live Demo: <a href="https://emdrargon-redditclient.netlify.app/" target="_blank">emdrargon-redditclient.netlify.app</a></strong>
 </p>
 
-A Reddit-style browsing client built as the capstone project for the Redux module of my Full-Stack Engineer path. Browse popular subreddits, view post feeds, search content, and read full comment threads — all powered by Redux Toolkit and React Router.
+A Reddit-style browsing client built as the capstone project for the Redux module of my Full-Stack Engineer path. Browse popular subreddits, view post feeds, search content, and read full comment threads — all powered by Redux Toolkit and React Router, and configured as an installable Progressive Web App (PWA).
 
 ---
 
 ## 🚀 Live Features
 
+* PWA Capability: Fully installable on mobile devices, desktop computers, and Steam Deck with standard app badging and custom standalone display windows.
 * Popular communities sidebar with subreddit selection
 * Subreddit feed that updates based on selected community
 * Global search bar with submit-to-search behavior
@@ -29,7 +30,7 @@ A Reddit-style browsing client built as the capstone project for the Redux modul
 * TypeScript
 * Redux Toolkit (slices, async thunks, `extraReducers`)
 * React Router v6
-* Vite
+* Vite & Vite PWA Plugin
 * Netlify (deployment + serverless function)
 
 ---
@@ -37,6 +38,10 @@ A Reddit-style browsing client built as the capstone project for the Redux modul
 ## 📂 Project Structure
 
 ```
+public/
+│
+├── pwa-192x192.png       (application launch grid icon asset)
+└── pwa-512x512.png       (high-density display splash icon asset)
 src/
 │
 ├── app/
@@ -105,6 +110,10 @@ npm install
 3. Run the dev server:
 ```
 npm run dev
+```
+4. Compile production PWA assets:
+```
+npm run build
 ```
 
 ---
