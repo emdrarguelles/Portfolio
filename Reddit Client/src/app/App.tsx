@@ -20,7 +20,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Feed />} />
-      <Route path="feed/:postId" element={<PostDetail />} />
+      <Route path="post/:postId" element={<PostDetail />} />
     </Route>
   )
 )

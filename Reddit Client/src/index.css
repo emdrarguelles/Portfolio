@@ -163,8 +163,13 @@ body {
   margin: 0 auto;
 }
 
+.searchbar-container form {
+  display: flex;
+  gap: 8px;
+}
+
 .searchbar-input {
-  width: 100%;
+  flex: 1;
   padding: 8px 16px;
   border: 1px solid #EDEFF1;
   border-radius: 20px;
@@ -177,4 +182,26 @@ body {
 .searchbar-input:focus {
   border-color: #0079D3;
   background: #FFFFFF;
+}
+
+.searchbar-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #FF4500;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.searchbar-btn:hover {
+  background: #E03D00;
+}
+
+.searchbar-btn:active {
+  background: #C73600;
 }

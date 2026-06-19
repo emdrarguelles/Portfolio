@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { fetchPostsBySubreddit, postSelector, selectedSubredditSelector, statusSelector } from './feedSlice';
+import { fetchPostsBySubreddit, postSelector, selectedSubredditSelector, statusSelector, } from './feedSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import Posts from '../../components/Posts/Posts';
 
@@ -10,12 +10,12 @@ const Feed = () => {
     const status = useAppSelector(statusSelector);
 
     useEffect(() => {
-        dispatch(fetchPostsBySubreddit());
-    },[])
+        dispatch(fetchPostsBySubreddit(selectedSubreddit));
+    },[selectedSubreddit, dispatch])
 
     return (
         <div className="feed">
-            <Posts post={post} selectedSubreddit={selectedSubreddit} status={status}  />
+            <Posts post={post} selectedSubreddit={selectedSubreddit} status={status} />
         </div>
     )
 }

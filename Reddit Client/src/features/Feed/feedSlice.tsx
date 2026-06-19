@@ -14,6 +14,26 @@ export interface Post {
 
 export const fetchPostsBySubreddit = createAsyncThunk(
     'feed/fetchPostsBySubreddit',
+    async (name: string) => {
+        const response = await fetch(`/api/subreddits/${name}.json`);
+        const data = await response.json();
+        return data.data.children.map((child: any) => ({
+            id: child.data.id,
+            title: child.data.title,
+            author: child.data.author,
+            score: child.data.score,
+            num_comments: child.data.num_comments,
+            subreddit: child.data.subreddit,
+            url: child.data.url,
+            thumbnail: child.data.thumbnail || null
+        }))
+    }
+)
+
+
+/* mocked data we used to build the app
+export const fetchPostsBySubreddit = createAsyncThunk(
+    'feed/fetchPostsBySubreddit',
     async () => {
         return [
             {
@@ -49,6 +69,7 @@ export const fetchPostsBySubreddit = createAsyncThunk(
         ]
     }
 )
+*/
 
 const feedSlice = createSlice({
     name: 'feed',
@@ -59,7 +80,11 @@ const feedSlice = createSlice({
         isRendered: false,
         isError: false
     },
-    reducers: {},
+    reducers: {
+        selectSubreddit: (state, action) => {
+            state.selectedSubreddit = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchPostsBySubreddit.pending, (state) => {
@@ -81,4 +106,5 @@ export const postSelector = (state: RootState) => state.feed.posts
 export const selectedSubredditSelector = (state: RootState) => state.feed.selectedSubreddit;
 export const statusSelector = (state: RootState) => state.feed.status;
 
+export const { selectSubreddit } = feedSlice.actions;
 export default feedSlice.reducer;

@@ -6,7 +6,6 @@ interface Subreddit {
     icon: string | null;
 }
 
-/* will use later once we do OAuth
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
     async () => {
@@ -17,8 +16,9 @@ export const fetchPopularSubreddits = createAsyncThunk(
             icon: child.data.community_icon || child.data.icon_img || null,
         }))
     }
-)*/
+)
 
+/* mocked data we used to build the app
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
     async () => {
@@ -31,6 +31,7 @@ export const fetchPopularSubreddits = createAsyncThunk(
         ]
     }
 )
+*/
 
 export const popularSlice = createSlice({
     name: 'popular',
