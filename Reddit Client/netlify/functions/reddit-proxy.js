@@ -6,38 +6,41 @@ export default async (req) => {
 
         const response = await fetch(redditUrl, {
             headers: {
-                'User-Agent': 'web:reddit-client:v1.0 (by /u/emdrargon)'
+                // Make it look more like a real browser / unique app
+                'User-Agent': 'Mozilla/5.0 (compatible; Reddit-Clone/1.0; +https://your-site-name.netlify.app)',
+                'Accept': 'application/json'
             }
         });
 
-        const contentType = response.headers.get('content-type') || '';
-        let data;
-
-        if (contentType.includes('application/json')) {
-            data = await response.json();
-        } else {
-            data = await response.text();
+        if (!response.ok) {
+            console.error(`Reddit returned ${response.status} for ${redditUrl}`);
+            const errorText = await response.text();
+            return new Response(
+                JSON.stringify({ error: `Reddit API error: ${response.status}` }),
+                { 
+                    status: response.status,
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                }
+            );
         }
 
-        // Return with correct content type
-        return new Response(
-            typeof data === 'string' ? data : JSON.stringify(data),
-            {
-                status: response.status,
-                headers: {
-                    'Content-Type': contentType.includes('application/json') 
-                        ? 'application/json' 
-                        : 'text/plain',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET, OPTIONS',
-                }
+        const data = await response.json();
+
+        return new Response(JSON.stringify(data), {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             }
-        );
+        });
 
     } catch (error) {
         console.error('Proxy error:', error);
         return new Response(
-            JSON.stringify({ error: 'Failed to fetch from Reddit' }),
+            JSON.stringify({ error: 'Internal proxy error' }),
             { 
                 status: 500,
                 headers: { 
