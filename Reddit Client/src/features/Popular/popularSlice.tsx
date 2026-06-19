@@ -62,7 +62,6 @@ export const popularSlice = createSlice({
 })
 
 export const subredditsSelector = (state: RootState) => state.popular.subreddits;
-export const statusSelector = (state: RootState) => state.popular.status;
 
 
 export default popularSlice.reducer

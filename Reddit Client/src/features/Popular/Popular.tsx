@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { fetchPopularSubreddits, subredditsSelector, statusSelector } from './popularSlice';
+import { fetchPopularSubreddits, subredditsSelector } from './popularSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectSubreddit } from '../Feed/feedSlice';
 
 const Popular = () => {
     const dispatch = useAppDispatch();
     const subreddits = useAppSelector(subredditsSelector);
-    const status = useAppSelector(statusSelector);
 
     useEffect(() => {
         dispatch(fetchPopularSubreddits())
