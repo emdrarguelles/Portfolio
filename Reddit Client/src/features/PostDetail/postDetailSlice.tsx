@@ -1,6 +1,7 @@
 import { RootState } from '../../app/store';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Post } from '../Feed/feedSlice';
+import { mockPostsById, mockComments } from '../../utils/mockData';
 
 export interface Comment {
     id: string;
@@ -11,6 +12,7 @@ export interface Comment {
     replies: Comment[];
 }
 
+/* ## API Status: Mock Data
 export const fetchPostsById = createAsyncThunk(
     'postdetails/fetchPostsById',
     async (id: string) => {
@@ -56,40 +58,17 @@ export const fetchPostsById = createAsyncThunk(
         return { post, comments };
     }
 )
+*/
 
-/* mocked data we used to build the app
 export const fetchPostsById = createAsyncThunk(
     'postdetails/fetchPostsById',
-    async () => {
-        return [
-            {
-                id: '123',
-                author: 'post.author',
-                author_icon: 'post.author_icon',
-                body: 'post.body',
-                score: 0,
-                replies: []
-            },
-            {
-                id: '456',
-                author: 'post.author',
-                author_icon: 'post.author_icon',
-                body: 'post.body',
-                score: 0,
-                replies: []
-            },
-            {
-                id: '789',
-                author: 'post.author',
-                author_icon: 'post.author_icon',
-                body: 'post.body',
-                score: 0,
-                replies: []
-            }
-        ]
+    async (id: string) => {
+        return {
+            post: mockPostsById[id] ?? mockPostsById.pop1,
+            comments: mockComments
+        };
     }
-)
-*/
+);
 
 const postDetailsSlice = createSlice({
     name: 'postdetails',

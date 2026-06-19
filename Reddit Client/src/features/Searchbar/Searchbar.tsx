@@ -1,4 +1,4 @@
-import { search, searchTermSelector, fetchPostsBySearch } from './searchbarSlice';
+import { search, searchTermSelector, fetchPostsBySearch, clearSearch } from './searchbarSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 const Searchbar = () => {
@@ -10,6 +10,7 @@ const Searchbar = () => {
         e.preventDefault();
         if (searchTerm.trim().length > 0) {
             dispatch(fetchPostsBySearch(searchTerm));
+            dispatch(clearSearch());
         }
     }
 

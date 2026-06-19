@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchPostsById, postSelector, commentsSelector } from './postDetailSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import CommentCard from '../../components/CommentCard/CommentCard';
 
 const PostDetail = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const post = useAppSelector(postSelector);
     const comments = useAppSelector(commentsSelector);
@@ -28,12 +29,12 @@ const PostDetail = () => {
 
  
     return (
-        <>
+        <div className="feed">
+            <button className="back-btn" onClick={() => navigate(-1)}>← Back</button>
             <div className="post-card">
                 <p className="post-meta">r/{post.subreddit} • Posted by u/{post.author}</p>
                 <p
                     className="post-title"
-                    style={{ cursor: 'pointer' }}
                 >
                     {post.title}
                 </p>
@@ -55,7 +56,7 @@ const PostDetail = () => {
                     <CommentCard key={comment.id} comment={comment} />
                 )) || <p>No Comments yet.</p>}
             </div>
-        </>
+        </div>
     );
 };
 

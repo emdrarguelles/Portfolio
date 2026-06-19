@@ -1,5 +1,6 @@
 import { RootState } from '../../app/store';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { mockFeeds } from '../../utils/mockData';
 
 export interface Post {
     id: string;
@@ -12,6 +13,7 @@ export interface Post {
     thumbnail: string;
 }
 
+/* ## API Status: Mock Data
 export const fetchPostsBySubreddit = createAsyncThunk(
     'feed/fetchPostsBySubreddit',
     async (name: string) => {
@@ -29,47 +31,16 @@ export const fetchPostsBySubreddit = createAsyncThunk(
         }))
     }
 )
+*/
 
 
-/* mocked data we used to build the app
 export const fetchPostsBySubreddit = createAsyncThunk(
     'feed/fetchPostsBySubreddit',
-    async () => {
-        return [
-            {
-                id: '123',
-                title: 'postTitle',
-                author: 'username',
-                score: 0,
-                num_comments: 0,
-                subreddit: 'fromWhere',
-                url: 'link',
-                thumbnail: 'https://...'
-            },
-            {
-                id: '456',
-                title: 'postTitle',
-                author: 'username',
-                score: 0,
-                num_comments: 0,
-                subreddit: 'fromWhere',
-                url: 'link',
-                thumbnail: 'https://...'
-            },
-            {
-                id: '789',
-                title: 'postTitle',
-                author: 'username',
-                score: 0,
-                num_comments: 0,
-                subreddit: 'fromWhere',
-                url: 'link',
-                thumbnail: 'https://...'
-            }
-        ]
+    async (name: string) => {
+        return mockFeeds[name] ?? mockFeeds.popular;
     }
-)
-*/
+);
+
 
 const feedSlice = createSlice({
     name: 'feed',

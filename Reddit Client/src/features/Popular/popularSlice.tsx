@@ -1,11 +1,13 @@
 import { RootState } from '../../app/store';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { mockSubreddits } from '../../utils/mockData';
 
 interface Subreddit {
     name: string;
     icon: string | null;
 }
 
+/* ## API Status: Mock Data
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
     async () => {
@@ -17,21 +19,15 @@ export const fetchPopularSubreddits = createAsyncThunk(
         }))
     }
 )
+*/
 
-/* mocked data we used to build the app
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
     async () => {
-        return [
-            { name: 'gaming', icon: null },
-            { name: 'worldnews', icon: null },
-            { name: 'movies', icon: null },
-            { name: 'music', icon: null },
-            { name: 'technology', icon: null },
-        ]
+        return mockSubreddits;
     }
-)
-*/
+);
+
 
 export const popularSlice = createSlice({
     name: 'popular',

@@ -1,7 +1,9 @@
 import { RootState } from '../../app/store';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Post } from '../../features/Feed/feedSlice';
+import { mockFeeds } from '../../utils/mockData';
 
+/* ## API Status: Mock Data
 export const fetchPostsBySearch = createAsyncThunk(
     'searchbar/fetchPostsBySearch',
     async (search: string) => {
@@ -19,6 +21,22 @@ export const fetchPostsBySearch = createAsyncThunk(
         }))
     }
 )
+*/
+
+export const fetchPostsBySearch = createAsyncThunk(
+    'searchbar/fetchPostsBySearch',
+    async (search: string) => {
+        const term = search.toLowerCase();
+
+        const allGlobalPosts = Object.values(mockFeeds).flat();
+
+        return allGlobalPosts.filter(post =>
+            post.title.toLowerCase().includes(term) ||
+            post.subreddit.toLowerCase().includes(term) ||
+            post.author.toLowerCase().includes(term)
+        );
+    }
+);
 
 const searchBarSlice = createSlice({
     name: 'searchbar',
@@ -30,6 +48,9 @@ const searchBarSlice = createSlice({
     reducers: {
         search: (state, action) => {
             state.searchTerm = action.payload;
+        },
+        clearSearch: (state) => {
+            state.searchTerm = '';
         },
         clearPost: (state) => {
             state.results = [] as Post[];
@@ -54,4 +75,4 @@ export const searchTermSelector = (state: RootState) => state.searchbar.searchTe
 export const resultsSelector = (state: RootState) => state.searchbar.results;
 
 export default searchBarSlice.reducer;
-export const { search, clearPost } = searchBarSlice.actions;
+export const { search, clearPost, clearSearch } = searchBarSlice.actions;
