@@ -14,34 +14,21 @@ export interface Post {
 
 export const fetchPostsBySubreddit = createAsyncThunk(
     'feed/fetchPostsBySubreddit',
-    async (name: string, { rejectWithValue }) => {
-        try {
-            const response = await fetch(`/api/r/${name}.json?limit=25`);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            return data.data.children.map((child: any) => ({
-                id: child.data.id,
-                title: child.data.title,
-                author: child.data.author,
-                score: child.data.score,
-                num_comments: child.data.num_comments,
-                subreddit: child.data.subreddit,
-                url: child.data.url,
-                thumbnail: child.data.thumbnail || null
-            }));
-        } catch (error) {
-            const message = error instanceof Error 
-                ? error.message 
-                : 'Failed to fetch posts from Reddit';
-            return rejectWithValue(message);
-        }
+    async (name: string) => {
+        const response = await fetch(`/api/r/${name}.json`);
+        const data = await response.json();
+        return data.data.children.map((child: any) => ({
+            id: child.data.id,
+            title: child.data.title,
+            author: child.data.author,
+            score: child.data.score,
+            num_comments: child.data.num_comments,
+            subreddit: child.data.subreddit,
+            url: child.data.url,
+            thumbnail: child.data.thumbnail || null
+        }))
     }
-);
+)
 
 
 /* mocked data we used to build the app

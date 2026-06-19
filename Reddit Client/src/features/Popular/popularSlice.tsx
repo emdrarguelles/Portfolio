@@ -8,27 +8,15 @@ interface Subreddit {
 
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
-    async (_, { rejectWithValue }) => {
-        try {
-            const response = await fetch(`/api/r/popular.json?limit=5`);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return data.data.children.map((child: any) => ({
-                name: child.data.display_name,
-                icon: child.data.community_icon || child.data.icon_img || null,
-            }));
-        } catch (error) {
-            const message = error instanceof Error 
-                ? error.message 
-                : 'Failed to fetch popular subreddits';
-            return rejectWithValue(message);
-        }
+    async () => {
+        const response = await fetch('/api/r/popular.json?limit=5');
+        const data = await response.json();
+        return data.data.children.map((child: any) => ({
+            name: child.data.display_name,
+            icon: child.data.community_icon || child.data.icon_img || null,
+        }))
     }
-);
+)
 
 /* mocked data we used to build the app
 export const fetchPopularSubreddits = createAsyncThunk(
