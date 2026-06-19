@@ -45,20 +45,20 @@ A responsive personal portfolio website showcasing my projects, technical skills
 
 ---
 
-### 🤖 Reddit Client (2026)
+### 🤖 Reddit Client (2026) — [Live Demo](https://emdrargon-redditclient.netlify.app/)
 
-A Reddit-style browsing client built as a capstone project to master complex state management and client-side routing. Users can browse popular subreddits, view dynamic post feeds, query content via a global search bar, and dive into full comment threads.
+A Reddit-style browsing client built as a capstone project to master complex state management and client-side routing. Powered by a local mock data engine to bypass cloud provider IP restrictions on Reddit's unauthenticated endpoints, the app allows users to browse popular subreddits, view dynamic post feeds, query content via a global search bar, and dive into full comment threads.
 
-This project demonstrates advanced React patterns, structured state coordination across multiple slices, and architectural problem-solving when handling complex external APIs.
+This project demonstrates advanced React patterns, structured state coordination across multiple slices, and practical architectural problem-solving when navigating third-party API limitations.
 
 **Key Features:**
 * Fully managed global state via Redux Toolkit (Slices, Async Thunks, and lifecycle handling)
 * Multi-slice interaction (e.g., cross-slice state resets when switching communities)
 * Recursive nested comment rendering to parse infinitely deep reply trees
 * Client-side routing with parameter-driven data fetching (`/post/:postId`)
-* Resilient data architecture utilizing seamless mock-data failovers due to cloud IP blocking on Reddit's public API
+* Resilient data architecture utilizing a mock-data failover while preserving full, production-ready live fetch thunks in the codebase
 
-**Stack:** React · TypeScript · Redux Toolkit · React Router v6 · Vite · Netlify
+**Stack:** React · TypeScript · Redux Toolkit · React Router v6 · Vite · Netlify (Deployed)
 
 ---
 
