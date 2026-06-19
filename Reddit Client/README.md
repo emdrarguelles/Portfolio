@@ -1,5 +1,4 @@
 # 🤖 Reddit Client
-
 <p align="center">
   <img src="./src/assets/app_preview.png" width="800"/>
 </p>
@@ -37,9 +36,8 @@ A Reddit-style browsing client built as the capstone project for the Redux modul
 
 ## 📂 Project Structure
 
+```
 src/
-│
-├── assets/               (app logos, previews, and visual media)
 │
 ├── app/
 │   ├── App.tsx          (router config)
@@ -58,13 +56,14 @@ src/
     ├── Posts/
     ├── PostCard/
     └── CommentCard/
+```
 
 ---
 
 ## 📌 Key Highlights
 
 ### 1. Redux Architecture
-* Four feature slices, each with their own async thunk and extraReducers pending/fulfilled/rejected lifecycle
+* Four feature slices, each with their own async thunk and `extraReducers` pending/fulfilled/rejected lifecycle
 * Cross-slice coordination — selecting a subreddit clears stale search results via a dispatched action from a sibling slice
 
 ### 2. Recursive Comment Parsing
@@ -72,8 +71,8 @@ src/
 * Handled with a self-calling recursive mapping function rather than a fixed-depth loop
 
 ### 3. Routing & Dynamic Data Fetching
-* useParams reads the post ID directly from the URL
-* useEffect triggers a fetch keyed to that ID, with TypeScript-safe handling for the `string | undefined` param type
+* `useParams` reads the post ID directly from the URL
+* `useEffect` triggers a fetch keyed to that ID, with TypeScript-safe handling for the `string | undefined` param type
 
 ---
 
@@ -84,7 +83,7 @@ This project uses Reddit's public, unauthenticated `.json` endpoints as specifie
 **Root cause:** Reddit actively blocks requests from cloud/serverless IP ranges (AWS, Netlify, Vercel, etc.) regardless of headers — a known limitation also reported by other Codecademy students working through this same project. Reliable live data requires a registered Reddit OAuth app (client ID + secret), which is outside this project's brief and approval timeline.
 
 **What's real in this build:**
-* All Redux slices (popular, feed, searchbar, postDetails) contain fully written, correct fetch thunks targeting Reddit's real endpoint patterns (`/r/{subreddit}.json`, `/comments/{id}.json`, `/search.json`)
+* All Redux slices (`popular`, `feed`, `searchbar`, `postDetails`) contain fully written, correct fetch thunks targeting Reddit's real endpoint patterns (`/r/{subreddit}.json`, `/comments/{id}.json`, `/search.json`)
 * A working Netlify serverless proxy exists to solve the CORS portion of the problem
 * Mock data is used as the active data source so the full UI/UX can be demonstrated reliably regardless of Reddit's request-blocking policy
 
@@ -95,14 +94,18 @@ The real-fetch thunks are preserved in the codebase (commented where mocked) as 
 ## ⚙️ Setup & Usage
 
 1. Clone the repository:
+```
 git clone https://github.com/emdrarguelles/Portfolio.git
-
+```
 2. Navigate to the project folder and install dependencies:
+```
 cd "Portfolio/Reddit Client"
 npm install
-
+```
 3. Run the dev server:
+```
 npm run dev
+```
 
 ---
 
