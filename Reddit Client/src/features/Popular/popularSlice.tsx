@@ -9,7 +9,7 @@ interface Subreddit {
 export const fetchPopularSubreddits = createAsyncThunk(
     'popular/fetchPopularSubreddits',
     async () => {
-        const response = await fetch('/api/subreddits/popular.json?limit=5');
+        const response = await fetch('/api/r/popular.json?limit=5');
         const data = await response.json();
         return data.data.children.map((child: any) => ({
             name: child.data.display_name,

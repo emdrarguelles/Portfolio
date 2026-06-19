@@ -15,7 +15,7 @@ export interface Post {
 export const fetchPostsBySubreddit = createAsyncThunk(
     'feed/fetchPostsBySubreddit',
     async (name: string) => {
-        const response = await fetch(`/api/subreddits/${name}.json`);
+        const response = await fetch(`/api/r/${name}.json`);
         const data = await response.json();
         return data.data.children.map((child: any) => ({
             id: child.data.id,
