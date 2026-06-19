@@ -1,6 +1,6 @@
 # 🤖 Reddit Client
 <p align="center">
-  <img src="src/assets/reddit-client-preview.png" width="800"/>
+  <img src='./src/assets/app_preview.png' width="800"/>
 </p>
 
 A Reddit-style browsing client built as the capstone project for the Redux module of my Full-Stack Engineer path. Browse popular subreddits, view post feeds, search content, and read full comment threads — all powered by Redux Toolkit and React Router.
