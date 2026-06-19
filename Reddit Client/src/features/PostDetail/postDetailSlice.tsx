@@ -13,49 +13,60 @@ export interface Comment {
 
 export const fetchPostsById = createAsyncThunk(
     'postdetails/fetchPostsById',
-    async (id: string) => {
-        const response = await fetch(`/api/comments/${id}.json`);
-        const data = await response.json();
+    async (id: string, { rejectWithValue }) => {
+        try {
+            const response = await fetch(`/api/comments/${id}.json`);
 
-        // data[0] = post listing, data[1] = comments listing
-        const postData = data[0].data.children[0].data;
-        const post: Post = {
-            id: postData.id,
-            title: postData.title,
-            author: postData.author,
-            score: postData.score,
-            num_comments: postData.num_comments,
-            subreddit: postData.subreddit,
-            url: postData.url,
-            thumbnail: postData.thumbnail || null
-        };
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
-        const mapComment = (child: any): Comment => {
-            const c = child.data;
-            const hasReplies = c.replies && c.replies.data;
-            const replies = hasReplies
-                ? c.replies.data.children
-                    .filter((reply: any) => reply.kind === 't1')
-                    .map(mapComment)
-                : [];
+            const data = await response.json();
 
-            return {
-                id: c.id,
-                author: c.author,
-                author_icon: c.author_icon || null,
-                body: c.body,
-                score: c.score,
-                replies
+            const postData = data[0].data.children[0].data;
+            const post: Post = {
+                id: postData.id,
+                title: postData.title,
+                author: postData.author,
+                score: postData.score,
+                num_comments: postData.num_comments,
+                subreddit: postData.subreddit,
+                url: postData.url,
+                thumbnail: postData.thumbnail || null
             };
-        };
 
-        const comments = data[1].data.children
-            .filter((child: any) => child.kind === 't1')
-            .map(mapComment);
+            const mapComment = (child: any): Comment => {
+                const c = child.data;
+                const hasReplies = c.replies?.data?.children;
+                const replies = hasReplies
+                    ? c.replies.data.children
+                        .filter((reply: any) => reply.kind === 't1')
+                        .map(mapComment)
+                    : [];
 
-        return { post, comments };
+                return {
+                    id: c.id,
+                    author: c.author,
+                    author_icon: c.author_icon || null,
+                    body: c.body || '',
+                    score: c.score,
+                    replies
+                };
+            };
+
+            const comments = data[1].data.children
+                .filter((child: any) => child.kind === 't1')
+                .map(mapComment);
+
+            return { post, comments };
+        } catch (error) {
+            const message = error instanceof Error 
+                ? error.message 
+                : 'Failed to fetch post details';
+            return rejectWithValue(message);
+        }
     }
-)
+);
 
 /* mocked data we used to build the app
 export const fetchPostsById = createAsyncThunk(
